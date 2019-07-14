@@ -84,6 +84,16 @@
 			}
 		});
 
+	//Card Results (Will need to be done for each card result)
+		var $commanderButton = $('#card-1-cmd-button');
+
+			$commanderButton.on('click', function(event) {
+				var $parentElement = document.getElementById(event.currentTarget.parentElement.id);
+				var imageUrl = $parentElement.getAttribute('imageurl');
+
+				$('#commander-image').prop('src', imageUrl);
+			});
+
 	// Forms.
 		var $form = $('form');
 
@@ -142,7 +152,100 @@
 							.css('overflow-y', 'auto');
 
 			});
-		
+	
+	// Left Menu.
+		var $menuLeft = $('#menu-left');
+
+		$menuLeft.wrapInner('<div class="inner"></div>');
+
+		$menuLeft._locked = false;
+
+		$menuLeft._lock = function() {
+
+			if ($menuLeft._locked)
+				return false;
+
+			$menuLeft._locked = true;
+
+			window.setTimeout(function() {
+				$menuLeft._locked = false;
+			}, 350);
+
+			return true;
+
+		};
+
+		$menuLeft._show = function() {
+
+			if ($menuLeft._lock())
+				$body.addClass('is-left-menu-visible');
+
+		};
+
+		$menuLeft._hide = function() {
+
+			if ($menuLeft._lock())
+				$body.removeClass('is-left-menu-visible');
+
+		};
+
+		$menuLeft._toggle = function() {
+
+			if ($menuLeft._lock())
+				$body.toggleClass('is-left-menu-visible');
+
+		};
+
+		$menuLeft
+			.appendTo($body)
+			.on('click', function(event) {
+				event.stopPropagation();
+			})
+			.on('click', 'a', function(event) {
+
+				var href = $(this).attr('href');
+
+				event.preventDefault();
+				event.stopPropagation();
+
+				// Hide.
+					$menuLeft._hide();
+
+				// Redirect.
+					if (href == '#menu')
+						return;
+
+					window.setTimeout(function() {
+						window.location.href = href;
+					}, 350);
+
+			})
+			.append('<a class="close" href="#menu-left">Close</a>');
+
+		$body
+			.on('click', 'a[href="#menu-left"]', function(event) {
+
+				event.stopPropagation();
+				event.preventDefault();
+
+				// Toggle.
+					$menuLeft._toggle();
+
+			})
+			.on('click', function(event) {
+
+				// Hide.
+					$menuLeft._hide();
+
+			})
+			.on('keydown', function(event) {
+
+				// Hide on escape.
+					if (event.keyCode == 27)
+						$menuLeft._hide();
+
+			});		
+
 	// Menu.
 		var $menu = $('#menu');
 

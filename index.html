@@ -32,16 +32,16 @@
 									</ul>
 								</nav>
 
-								<nav-left>
+								<nav-left id="nav-left">
 									<ul>
-										<li><a href="#menu">Menu</a></li>
+										<li><a id="left-menu-button" href="#menu-left">Menu</a></li>
 									</ul>
-								</nav-left>
+								</nav>
 
 						</div>
 					</header>
 
-				<!-- Menu -->
+				<!-- Right Menu (Metrics) -->
 					<nav id="menu">
 						<h2>Metrics</h2>
 						<div class="table-wrapper">
@@ -115,13 +115,80 @@
 						</div>
 					</nav>
 
+				<!-- Left Menu -->
+					<nav id="menu-left">
+						<section id="commander-section">
+							<h2>Commander</h2>
+							<div style="min-width: 420px; min-height: 600px; border: 1px solid #aaaaaa;" ondrop="drop(event)" class="image">
+								<img id="commander-image" style="width: 100%; height: 100%; object-fit: fill;" src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=443087&amp;type=card">
+							</div>
+						</section>
+						<section id="deck-section">
+							<h2>Deck</h2>
+							<div class="table-wrapper">
+									<table>
+										<thead>
+											<tr>
+												<th>Type</th>
+												<th>Count</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>Creatures</td>
+												<td>
+													<input class="metric-count" value="0">
+												</td>
+											</tr>
+											<tr>
+												<td>Artifacts</td>
+												<td>
+													<input class="metric-count" value="0">
+												</td>
+											</tr>
+											<tr>
+												<td>Enchantments</td>
+												<td>
+													<input class="metric-count" value="0">
+												</td>
+											</tr>
+											<tr>
+												<td>Instants</td>
+												<td>
+													<input class="metric-count" value="0">
+												</td>
+											</tr>
+											<tr>
+												<td>Sorceries</td>
+												<td>
+													<input class="metric-count" value="0">
+												</td>
+											</tr>
+											<tr>
+												<td>Planeswalkers</td>
+												<td>
+													<input class="metric-count" value="0">
+												</td>
+											</tr>
+											<tr>
+												<td>Lands</td>
+												<td>
+													<input class="metric-count" value="0">
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+						</section>
+					</nav>
+
 				<!-- Main -->
 					<div id="main">
 						<div class="inner">
 							<header style="text-align: center;">
-								<div class="field half" style="margin-bottom: 20px;">
+								<section class="field half" style="margin-bottom: 20px;">
 									<input type="text" name="name" id="name" placeholder="Search" />
-								</div>
+								</section>
 								<section>
 									<input type="radio" id="name-radio" name="search-type" checked>
 									<label for="name-radio">Name</label>
@@ -147,51 +214,43 @@
 									<input type="checkbox" id="m7">
 									<label for="m7">7+</label>
 								</section>
+								<h2 style="margin-bottom: 20px;">Color Identity</h2>
+								<section>
+									<input type="checkbox" id="filter-red">
+									<label for="filter-red"><img src="images/mana-red.svg" style="min-width:40px; min-height:40px;"></label>
+									<input type="checkbox" id="filter-white">
+									<label for="filter-white"><img src="images/mana-white.svg" style="min-width:40px; min-height:40px;"></label>
+									<input type="checkbox" id="filter-blue">
+									<label for="filter-blue"><img src="images/mana-blue.svg" style="min-width:40px; min-height:40px;"></label>
+									<input type="checkbox" id="filter-black">
+									<label for="filter-black"><img src="images/mana-black.svg" style="min-width:40px; min-height:40px;"></label>
+									<input type="checkbox" id="filter-green">
+									<label for="filter-green"><img src="images/mana-green.svg" style="min-width:40px; min-height:40px;"></label>
+								</section>
 							</header>
 							<section id="card-results-section" class="tiles">
 								<article>
 									<span class="image">
-										<img src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=4747&type=card" alt="" />
+										<img id="card1" ondragstart="dragStart(event)" src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=4747&type=card" alt="" />
 									</span>
-									<a href="generic.html">
-										<div class="content">
-											<p>Card Kingdom: $1.00</p>
-											<p>TCG Player: $1.00</p>
-										</div>
-									</a>
+									<section id="card-1-button-section" imageurl="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=4747&type=card"> 
+										<button id="card-1-cmd-button">
+											Make Commander
+										</button>
+										<button id="card-1-deck-button">
+											Add to Deck
+										</button>
+									</section>
 								</article>
 								<article>
 									<span class="image">
 										<img src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=4858&type=card" alt="" />
 									</span>
-									<a href="generic.html">
-										<div class="content">
-											<p>Card Kingdom: $1.00</p>
-											<p>TCG Player: $1.00</p>
-										</div>
-									</a>
 								</article>
 								<article>
 									<span class="image">
 										<img src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=4689&type=card" alt="" />
 									</span>
-									<a href="generic.html">
-										<div class="content">
-											<p>Card Kingdom: $1.00</p>
-											<p>TCG Player: $1.00</p>
-										</div>
-									</a>
-								</article>
-								<article>
-									<span class="image">
-										<img src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=4689&type=card" alt="" />
-									</span>
-									<a href="generic.html">
-										<div class="content">
-											<p>Card Kingdom: $1.00</p>
-											<p>TCG Player: $1.00</p>
-										</div>
-									</a>
 								</article>
 							</section>
 						</div>
@@ -201,7 +260,7 @@
 					<footer id="footer">
 						<div class="inner">
 							<ul class="copyright">
-								<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+								<li>&copy; TheEdhBrew.com. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 							</ul>
 						</div>
 					</footer>
@@ -214,6 +273,30 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script>
+				function dragStart(event) {
+					//open left menu
+					$('#left-menu-button').click();
+					event.dataTransfer.setData('image', event.target.id);
+				} 
+				
+				function dragEnd(event) {
+					//close left menu
+				}
+
+				function allowDrop(event) {
+					event.preventDefault();
+				}
+
+				function drop(event) {
+					event.preventDefault();
+					
+					//getData(): from dragStart event.dataTransfer.setData()
+					var data = event.dataTransfer.getData()
+					event.target.appendChild(document.getElementById('image'))
+				}
+			</script>
+			
 
 	</body>
 </html>
