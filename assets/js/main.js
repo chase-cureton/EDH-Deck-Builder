@@ -46,14 +46,48 @@
 
 						//mustache to template these...
 						cardList.forEach(function(item, index) {
-							if (item['ImageUrl'] != null)
-								$results.append('<article><span class="image"><img src="' + item['ImageUrl'] + '"</span></article>')
+							if (item['ImageUrl'] != null) {
+								var article = $('<article>');
+
+								var span = $('<span>');
+								span.addClass('image');
+
+								var img = $('<img id="card-image-' + index + '" src="' + item['ImageUrl'] + '">');
+
+								span.append(img);
+								article.append(span);
+
+								var section = $('<section id="card-' + index + '-button-section" imageurl="'+ item['ImageUrl'] +'">');
+
+								var cmdBtn = $('<button id="card-' + index +'-cmd-button">');
+								cmdBtn.append('Make Commander');
+
+								var deckBtn = $('<button id="card-' + index +'-deck-button">');
+								deckBtn.append('Add to Deck')
+
+								section.append(cmdBtn);
+								section.append(deckBtn);
+
+								article.append(section);
+
+								$results.append(article);
+								
+								cmdBtn.on('click', function(event) {
+									var $parentElement = document.getElementById(event.currentTarget.parentElement.id);
+									var imageUrl = $parentElement.getAttribute('imageurl');
+					
+									$('#commander-image').prop('src', imageUrl);
+
+									$('#left-menu-button').click();
+								});
+							}
 						});
 					}
 				};
 
 				var url = "https://vol4sqhda6.execute-api.us-east-1.amazonaws.com/Prod/mtg-services/searchcards";
 
+				//Content Filter
 				if ($('#name-radio').prop('checked')) {
 					var requestDto = {
 						'NameFilter': $search.val()
@@ -65,9 +99,31 @@
 					}
 				}
 
+				//Color Filter
+				var colorInput = {};
+
+				if ($('#filter-red').prop('checked'))
+					colorInput["R"] = true;
+
+				if ($('#filter-white').prop('checked'))
+					colorInput["W"] = true;
+
+				if ($('#filter-blue').prop('checked'))
+					colorInput["U"] = true;
+
+				if ($('#filter-black').prop('checked'))
+					colorInput["B"] = true;
+
+				if ($('#filter-green').prop('checked'))
+					colorInput["G"] = true;
+
+				requestDto["ColorFilter"] = colorInput;
+
+
+				//Mana Cost Filter
 				var manaInput = {};
 
-				$('#mana-filter').children('input').each(function(index) {
+				$('#mana-filter-section').children('input').each(function(index) {
 					if ($('#m' + index).prop('checked'))
 						manaInput[index] = true;
 					else
@@ -76,6 +132,34 @@
 
 				requestDto['ManaCostFilter'] = manaInput;
 
+				//Base Type Filter
+				var typeInput = {}
+
+				if ($('#creature-filter').prop('checked'))
+					typeInput["Creature"] = true;
+
+				if ($('#enchant-filter').prop('checked'))
+					typeInput["Enchantment"] = true;
+
+				if ($('#artifact-filter').prop('checked'))
+					typeInput["Artifact"] = true;
+
+				if ($('#planeswalker-filter').prop('checked'))
+					typeInput["Planeswalker"] = true;
+
+				if ($('#land-filter').prop('checked'))
+					typeInput["Land"] = true;
+
+				if ($('#instant-filter').prop('checked')) {
+					typeInput["Instant"] = true;
+					typeInput["Interrupt"] = true;
+				}
+
+				if ($('#sorcery-filter').prop('checked')) 
+					typeInput["Sorcery"] = true;
+
+				requestDto['BaseTypeFilter'] = typeInput;
+				
 				http.open('POST', url, true);
 
 				http.setRequestHeader('Content-Type', 'application/json');
@@ -85,14 +169,6 @@
 		});
 
 	//Card Results (Will need to be done for each card result)
-		var $commanderButton = $('#card-1-cmd-button');
-
-			$commanderButton.on('click', function(event) {
-				var $parentElement = document.getElementById(event.currentTarget.parentElement.id);
-				var imageUrl = $parentElement.getAttribute('imageurl');
-
-				$('#commander-image').prop('src', imageUrl);
-			});
 
 	// Forms.
 		var $form = $('form');
@@ -201,26 +277,35 @@
 			.on('click', function(event) {
 				event.stopPropagation();
 			})
-			.on('click', 'a', function(event) {
+			.on('click', 'a[href="#deck-view"]', function(event) {
+				$('#deck-view').show();
 
 				var href = $(this).attr('href');
 
-				event.preventDefault();
-				event.stopPropagation();
-
-				// Hide.
-					$menuLeft._hide();
-
-				// Redirect.
-					if (href == '#menu')
-						return;
-
-					window.setTimeout(function() {
-						window.location.href = href;
-					}, 350);
-
+				if (href == '#deck-view')
+					return;
 			})
 			.append('<a class="close" href="#menu-left">Close</a>');
+
+			// .on('click', 'a', function(event) {
+
+			// 	var href = $(this).attr('href');
+
+			// 	event.preventDefault();
+			// 	event.stopPropagation();
+
+			// 	// Hide.
+			// 		$menuLeft._hide();
+
+			// 	// Redirect.
+			// 		if (href == '#menu-left')
+			// 			return;
+
+			// 		window.setTimeout(function() {
+			// 			window.location.href = href;
+			// 		}, 350);
+
+			// })
 
 		$body
 			.on('click', 'a[href="#menu-left"]', function(event) {

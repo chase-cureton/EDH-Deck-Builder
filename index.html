@@ -124,134 +124,137 @@
 							</div>
 						</section>
 						<section id="deck-section">
-							<h2>Deck</h2>
+							<h2><a href="#deck-view">Deck</a></h2>
 							<div class="table-wrapper">
-									<table>
-										<thead>
-											<tr>
-												<th>Type</th>
-												<th>Count</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>Creatures</td>
-												<td>
-													<input class="metric-count" value="0">
-												</td>
-											</tr>
-											<tr>
-												<td>Artifacts</td>
-												<td>
-													<input class="metric-count" value="0">
-												</td>
-											</tr>
-											<tr>
-												<td>Enchantments</td>
-												<td>
-													<input class="metric-count" value="0">
-												</td>
-											</tr>
-											<tr>
-												<td>Instants</td>
-												<td>
-													<input class="metric-count" value="0">
-												</td>
-											</tr>
-											<tr>
-												<td>Sorceries</td>
-												<td>
-													<input class="metric-count" value="0">
-												</td>
-											</tr>
-											<tr>
-												<td>Planeswalkers</td>
-												<td>
-													<input class="metric-count" value="0">
-												</td>
-											</tr>
-											<tr>
-												<td>Lands</td>
-												<td>
-													<input class="metric-count" value="0">
-												</td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
+								<table>
+									<thead>
+										<tr>
+											<th>Type</th>
+											<th></th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>Creatures</td>
+											<td>
+												<input class="metric-count" value="0">
+											</td>
+										</tr>
+										<tr>
+											<td>Artifacts</td>
+											<td>
+												<input class="metric-count" value="0">
+											</td>
+										</tr>
+										<tr>
+											<td>Enchantments</td>
+											<td>
+												<input class="metric-count" value="0">
+											</td>
+										</tr>
+										<tr>
+											<td>Instants</td>
+											<td>
+												<input class="metric-count" value="0">
+											</td>
+										</tr>
+										<tr>
+											<td>Sorceries</td>
+											<td>
+												<input class="metric-count" value="0">
+											</td>
+										</tr>
+										<tr>
+											<td>Planeswalkers</td>
+											<td>
+												<input class="metric-count" value="0">
+											</td>
+										</tr>
+										<tr>
+											<td>Lands</td>
+											<td>
+												<input class="metric-count" value="0">
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
 						</section>
 					</nav>
+
+				<!-- Deck View -->
+					<div id="deck-view">
+
+					</div>
+
 
 				<!-- Main -->
 					<div id="main">
 						<div class="inner">
 							<header style="text-align: center;">
-								<section class="field half" style="margin-bottom: 20px;">
+								<section class="field half" style="margin-bottom: 10px;">
 									<input type="text" name="name" id="name" placeholder="Search" />
 								</section>
-								<section>
-									<input type="radio" id="name-radio" name="search-type" checked>
-									<label for="name-radio">Name</label>
-									<input type="radio" id="text-radio" name="search-type">
-									<label for="text-radio">Card Text</label>
-								</section>
-								<h2 style="margin-bottom: 20px;">Converted Mana Cost</h2>
-								<section id="mana-filter">
-									<input type="checkbox" id="m0">
-									<label for="m0">0</label>
-									<input type="checkbox" id="m1">
-									<label for="m1">1</label>
-									<input type="checkbox" id="m2">
-									<label for="m2">2</label>
-									<input type="checkbox" id="m3">
-									<label for="m3">3</label>
-									<input type="checkbox" id="m4">
-									<label for="m4">4</label>
-									<input type="checkbox" id="m5">
-									<label for="m5">5</label>
-									<input type="checkbox" id="m6">
-									<label for="m6">6</label>
-									<input type="checkbox" id="m7">
-									<label for="m7">7+</label>
-								</section>
-								<h2 style="margin-bottom: 20px;">Color Identity</h2>
-								<section>
-									<input type="checkbox" id="filter-red">
-									<label for="filter-red"><img src="images/mana-red.svg" style="min-width:40px; min-height:40px;"></label>
-									<input type="checkbox" id="filter-white">
-									<label for="filter-white"><img src="images/mana-white.svg" style="min-width:40px; min-height:40px;"></label>
-									<input type="checkbox" id="filter-blue">
-									<label for="filter-blue"><img src="images/mana-blue.svg" style="min-width:40px; min-height:40px;"></label>
-									<input type="checkbox" id="filter-black">
-									<label for="filter-black"><img src="images/mana-black.svg" style="min-width:40px; min-height:40px;"></label>
-									<input type="checkbox" id="filter-green">
-									<label for="filter-green"><img src="images/mana-green.svg" style="min-width:40px; min-height:40px;"></label>
+								<section class="tiles" style="margin-top: 10px;">
+									<section id="search-content-section">
+										<h2 style="margin-bottom: 20px;">Search Content</h2>
+										<input type="radio" id="name-radio" name="search-type" checked>
+										<label for="name-radio">Name</label>
+										<input type="radio" id="text-radio" name="search-type">
+										<label for="text-radio">Card Text</label>
+									</section>
+									<section id="color-filter-section">
+										<h2 style="margin-bottom: 20px;">Color Identity</h2>
+										<input type="checkbox" id="filter-red">
+										<label for="filter-red"><img src="images/mana-red.svg" style="min-width:40px; min-height:40px;"></label>
+										<input type="checkbox" id="filter-white">
+										<label for="filter-white"><img src="images/mana-white.svg" style="min-width:40px; min-height:40px;"></label>
+										<input type="checkbox" id="filter-blue">
+										<label for="filter-blue"><img src="images/mana-blue.svg" style="min-width:40px; min-height:40px;"></label>
+										<input type="checkbox" id="filter-black">
+										<label for="filter-black"><img src="images/mana-black.svg" style="min-width:40px; min-height:40px;"></label>
+										<input type="checkbox" id="filter-green">
+										<label for="filter-green"><img src="images/mana-green.svg" style="min-width:40px; min-height:40px;"></label>
+									</section>
+									<section id="mana-filter-section">
+										<h2 style="margin-bottom: 20px;">Converted Mana Cost</h2>
+										<input type="checkbox" id="m0">
+										<label for="m0">0</label>
+										<input type="checkbox" id="m1">
+										<label for="m1">1</label>
+										<input type="checkbox" id="m2">
+										<label for="m2">2</label>
+										<input type="checkbox" id="m3">
+										<label for="m3">3</label>
+										<input type="checkbox" id="m4">
+										<label for="m4">4</label>
+										<input type="checkbox" id="m5">
+										<label for="m5">5</label>
+										<input type="checkbox" id="m6">
+										<label for="m6">6</label>
+										<input type="checkbox" id="m7">
+										<label for="m7">7+</label>
+									</section>
+									<section id="base-type-filter-section">
+											<h2 style="margin-bottom: 20px;">Card Type</h2>
+											<input type="checkbox" id="creature-filter">
+											<label for="creature-filter">Creature</label>
+											<input type="checkbox" id="enchant-filter">
+											<label for="enchant-filter">Enchantment</label>
+											<input type="checkbox" id="artifact-filter">
+											<label for="artifact-filter">Artifact</label>
+											<input type="checkbox" id="planeswalker-filter">
+											<label for="planeswalker-filter">Planeswalker</label>
+											<input type="checkbox" id="land-filter">
+											<label for="land-filter">Land</label>
+											<input type="checkbox" id="instant-filter">
+											<label for="instant-filter">Instant</label>
+											<input type="checkbox" id="sorcery-filter">
+											<label for="sorcery-filter">Sorcery</label>
+									</section>
 								</section>
 							</header>
 							<section id="card-results-section" class="tiles">
-								<article>
-									<span class="image">
-										<img id="card1" ondragstart="dragStart(event)" src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=4747&type=card" alt="" />
-									</span>
-									<section id="card-1-button-section" imageurl="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=4747&type=card"> 
-										<button id="card-1-cmd-button">
-											Make Commander
-										</button>
-										<button id="card-1-deck-button">
-											Add to Deck
-										</button>
-									</section>
-								</article>
-								<article>
-									<span class="image">
-										<img src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=4858&type=card" alt="" />
-									</span>
-								</article>
-								<article>
-									<span class="image">
-										<img src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=4689&type=card" alt="" />
-									</span>
-								</article>
 							</section>
 						</div>
 					</div>
