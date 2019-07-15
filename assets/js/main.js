@@ -277,35 +277,13 @@
 			.on('click', function(event) {
 				event.stopPropagation();
 			})
-			.on('click', 'a[href="#deck-view"]', function(event) {
-				$('#deck-view').show();
+			.on('click', '#deck-details-button', function(event) {
+				var modal = document.getElementById('deck-modal');
+				var span = document.getElementsByClassName('close')[0];
 
-				var href = $(this).attr('href');
-
-				if (href == '#deck-view')
-					return;
+				modal.style.display = "block";
 			})
 			.append('<a class="close" href="#menu-left">Close</a>');
-
-			// .on('click', 'a', function(event) {
-
-			// 	var href = $(this).attr('href');
-
-			// 	event.preventDefault();
-			// 	event.stopPropagation();
-
-			// 	// Hide.
-			// 		$menuLeft._hide();
-
-			// 	// Redirect.
-			// 		if (href == '#menu-left')
-			// 			return;
-
-			// 		window.setTimeout(function() {
-			// 			window.location.href = href;
-			// 		}, 350);
-
-			// })
 
 		$body
 			.on('click', 'a[href="#menu-left"]', function(event) {
@@ -397,6 +375,49 @@
 						window.location.href = href;
 					}, 350);
 
+			})
+			.on('click', '#add-metric-button', function(event) {
+				var $metricTable = $('#metric-table');
+
+				var tr = $('<tr>');
+				var tdName = $('<td>');
+
+				var nameSelect = $('<select class="metric">')
+
+				$.getJSON('keywords.json', function(json) {
+					json.Keywords.forEach(function(item, index) {
+						var option = $('<option>');
+						option.append(item);
+
+						nameSelect.append(option);
+					});
+				});
+
+				tdName.append(nameSelect);
+				tr.append(tdName);
+
+				var tdTarget = $('<td>');
+
+				var targetSelect = $('<select class="metric-set">');
+
+				for(i = 1; i < 16; i++) {
+					var option = $('<option value="' + i + '">');
+					option.append(i);
+
+					targetSelect.append(option);
+				}
+
+				tdTarget.append(targetSelect);
+				tr.append(tdTarget);
+
+				var tdActual = $('<td>');
+
+				var actualInput = $('<input class="metric-count" value="' + 1 + '">');
+
+				tdActual.append(actualInput);
+				tr.append(tdActual);
+
+				$metricTable.append(tr);
 			})
 			.append('<a class="close" href="#menu">Close</a>');
 

@@ -1,0 +1,20 @@
+{
+    "Keywords": [
+        "Mana Ramp",
+        "Mana Fix",
+        "Card Draw",
+        "Removal: Permanent",
+        "Removal: Creature",
+        "Removal: Enchantment",
+        "Removal: Artifact",
+        "Removal: Planeswalker",
+        "Removal: Land",
+        "+1/+1",
+        "-1/-1",
+        "Graveyard: Draw",
+        "Graveyard: Cast"
+    ],
+    "Metrics": {
+
+    }
+}

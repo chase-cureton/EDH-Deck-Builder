@@ -3151,6 +3151,10 @@ input, select, textarea {
 		overflow-y: auto;
 	}
 
+	#menu-left > .inner > section > h2 > button {
+		background: whitesmoke;
+	}
+
 	#menu-left > .inner > section .table-wrapper > table tbody tr td > .metric {
 		min-width: 140px;
 	}
@@ -3264,6 +3268,10 @@ input, select, textarea {
 			opacity: 0;
 			overflow-y: auto;
 		}
+
+			#menu > .inner > section > button{
+				background: whitesmoke;
+			}
 
 			#menu > .inner > .table-wrapper > table tr td > .metric {
 				min-width: 140px;
@@ -3481,6 +3489,44 @@ input, select, textarea {
 		pointer-events: none;
 		cursor: default;
 		opacity: 0.25;
+	}
+
+	/* The modal (background) */
+	body.is-menu-visible #wrapper > .modal {
+		position: fixed;
+		top: 0;
+		right: 0;
+		width: 25em;
+		max-width: 80%;
+		height: 100%;
+		-webkit-overflow-scrolling: touch;
+		background: #585858;
+		color: #ffffff;
+		cursor: default;
+		visibility: hidden;
+		z-index: 10002;
+	}
+
+	body.is-menu-visible #wrapper > .modal-content {
+		background-color: #fefefe;
+		margin: auto;
+		padding: 20px;
+		border: 1px solid #888;
+		width: 80%;
+	}
+
+	/* The Close Button */
+	body.is-menu-visible #wrapper > .modal-content > .close {
+		color: #aaaaaa;
+		float: right;
+		font-size: 28px;
+		font-weight: bold;
+	}
+  
+	body.is-menu-visible #wrapper > .modal-content > .close:hover,.close:focus {
+		color: #000;
+		text-decoration: none;
+		cursor: pointer;
 	}
 
 	body.is-menu-visible #menu {

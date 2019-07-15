@@ -53,7 +53,7 @@
 										<th>Actual</th>
 									</tr>
 								</thead>
-								<tbody>
+								<tbody id="metric-table">
 									<tr>
 										<td>
 											<select class="metric">
@@ -113,6 +113,9 @@
 								</tbody>
 							</table>
 						</div>
+						<section id="menu-button-section">
+							<button id="add-metric-button">Add Metric</button>
+						</section>
 					</nav>
 
 				<!-- Left Menu -->
@@ -124,7 +127,7 @@
 							</div>
 						</section>
 						<section id="deck-section">
-							<h2><a href="#deck-view">Deck</a></h2>
+							<h2><button id="deck-details-button">Deck</button></h2>
 							<div class="table-wrapper">
 								<table>
 									<thead>
@@ -186,8 +189,10 @@
 					</nav>
 
 				<!-- Deck View -->
-					<div id="deck-view">
-
+					<div id="deck-modal" class="modal">
+						<div id="deck-modal-content" class="modal-content">
+							<span class="close">&times;</span>
+						</div>
 					</div>
 
 
